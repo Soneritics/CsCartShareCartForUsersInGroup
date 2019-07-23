@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>soneritics_sharecart</id>
+    <name>Soneritics Share Cart</name>
+    <version>1.0</version>
+    <default_language>en</default_language>
+    <priority>1000</priority>
+    <status>active</status>
+    <has_icon>Y</has_icon>
+    <settings edition_type="ROOT,ULT:VENDOR">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="praktijkcode">
+                        <name>Praktijkcode (user profile field id)</name>
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="minimum_amt">
+                        <name>Minimum order amount</name>
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="points_needed">
+                        <name>Number of points needed</name>
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="active">
+                        <name>Active</name>
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
+                        <variants/>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+</addon>

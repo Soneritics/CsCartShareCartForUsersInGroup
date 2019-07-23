@@ -1,0 +1,25 @@
+msgid ""
+msgstr "Project-Id-Version: addon\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: de_DE\n"
+"PO-Revision-Date: 2019-07-23 21:00+0200\n"
+
+msgctxt "Addons::name::soneritics_sharecart"
+msgid "Soneritics Share Cart"
+msgstr "Soneritics Share Cart"
+
+msgctxt "Addons::description::soneritics_sharecart"
+msgid "Share carts to other customers"
+msgstr "Share carts to other customers"
+
+msgctxt "Languages::soneritics_sharecart_menu"
+msgid "Shared cart overview"
+msgstr "Shared cart overview"
+
+msgctxt "Languages::addons.soneritics_sharecart.manage.overview_sidebar"
+msgid "This overview states all of the shared codes. It then gives an overview of all of the orders for this code."
+msgstr "This overview states all of the shared codes. It then gives an overview of all of the orders for this code."
+
+msgctxt "Languages::addons.soneritics_sharecart.overview.message"
+msgid "The overview below shows the codes that have been used, including the number of orders. Orders must have a minimum smount of %s. Every order will get one reward point. The number of required points is set at %s."
+msgstr "The overview below shows the codes that have been used, including the number of orders. Orders must have a minimum smount of %s. Every order will get one reward point. The number of required points is set at %s."
