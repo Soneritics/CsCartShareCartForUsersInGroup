@@ -52,7 +52,7 @@ class SoneriticsShareCartOverviewGenerator
 
         $rows = db_get_array(
             "SELECT
-                pfd.value as `code`,
+                LOWER(pfd.value) as `code`,
                 SUM(o.total) as `total`,
                 COUNT(o.order_id) as `ordercount`
             FROM `?:profile_fields_data` pfd
@@ -62,7 +62,7 @@ class SoneriticsShareCartOverviewGenerator
                 and object_type='O'
                 AND o.total >= ?d
                 AND o.status = 'C'
-            GROUP BY `code`",
+            GROUP BY LOWER(`code`)",
             $ids,
             $minimumAmount
         );
@@ -82,5 +82,26 @@ class SoneriticsShareCartOverviewGenerator
         }
 
         return $result;
+    }
+
+    /**
+     * @param string $code
+     * @return int[]
+     */
+    public function getOrderIdsForCode(string $code): array
+    {
+        $ids = $this->repository->getProfileField()->getIds();
+
+        return db_get_fields(
+            "SELECT `object_id`
+            FROM `?:profile_fields_data` pfd
+            WHERE 1=1
+                and field_id in(?a) 
+                and object_type='O'
+                and LOWER(`value`) = ?s
+            GROUP BY `object_id`",
+            $ids,
+            strtolower($code)
+        );
     }
 }

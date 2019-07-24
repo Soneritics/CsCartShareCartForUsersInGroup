@@ -16,6 +16,10 @@ msgctxt "Languages::soneritics_sharecart_menu"
 msgid "Shared cart overview"
 msgstr "Praktijkoverzicht"
 
+msgctxt "Languages::addons.soneritics_sharecart.manage.orders_sidebar"
+msgid "This overview states all of the orders for this code."
+msgstr "In dit overzicht vind je alle bestellingen die geplaatst zijn met deze praktijkcode."
+
 msgctxt "Languages::addons.soneritics_sharecart.manage.overview_sidebar"
 msgid "This overview states all of the shared codes. It then gives an overview of all of the orders for this code."
 msgstr "Dit overzicht bevat alle praktijkcodes en bijhorende orders."

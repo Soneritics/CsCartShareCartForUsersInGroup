@@ -22,13 +22,40 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
+use Tygh\Registry;
+
 if (!defined('BOOTSTRAP')) { die('Access denied'); }
 
+// Init variables for use in every controller function
 $repository = new SoneriticsShareCartRepository;
 
+// Overview
 if ($mode === 'overview') {
     $overview = (new SoneriticsShareCartOverviewGenerator($repository))->generateCompleteOverview();
     Tygh::$app['view']->assign('overview', $overview);
 }
 
+// Orders for a certain code
+if ($mode === 'orders') {
+    $code = $_REQUEST['code'];
+
+    # Fetch orders, as copied from /app/controllers/backend/orders.php
+    $params = $_REQUEST;
+    $params['order_id'] = (new SoneriticsShareCartOverviewGenerator($repository))->getOrderIdsForCode($code);
+
+    if (fn_allowed_for('MULTIVENDOR')) {
+        $params['company_name'] = true;
+    }
+
+    list($orders, $search, $totals) = fn_get_orders($params, Registry::get('settings.Appearance.admin_elements_per_page'), true);
+
+    # Set view variables
+    Tygh::$app['view']->assign('orders', $orders);
+    Tygh::$app['view']->assign('search', $search);
+    Tygh::$app['view']->assign('totals', $totals);
+    Tygh::$app['view']->assign('praktijkcode', $code);
+}
+
+// Default view variables
 Tygh::$app['view']->assign('repository', $repository);
