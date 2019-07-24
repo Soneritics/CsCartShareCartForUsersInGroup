@@ -23,3 +23,19 @@ msgstr "This overview states all of the shared codes. It then gives an overview 
 msgctxt "Languages::addons.soneritics_sharecart.overview.message"
 msgid "The overview below shows the codes that have been used, including the number of orders. Orders must have a minimum smount of %s. Every order will get one reward point. The number of required points is set at %s."
 msgstr "The overview below shows the codes that have been used, including the number of orders. Orders must have a minimum smount of %s. Every order will get one reward point. The number of required points is set at %s."
+
+msgctxt "Languages::addons.soneritics_sharecart.rewards"
+msgid "Rewards"
+msgstr "Rewards"
+
+msgctxt "Languages::addons.soneritics_sharecart.progress"
+msgid "Progress"
+msgstr "Progress"
+
+msgctxt "Languages::addons.soneritics_sharecart.total_order_amount"
+msgid "Total €"
+msgstr "Total €"
+
+msgctxt "Languages::addons.soneritics_sharecart.average_order_amount"
+msgid "Average order €"
+msgstr "Average order €"

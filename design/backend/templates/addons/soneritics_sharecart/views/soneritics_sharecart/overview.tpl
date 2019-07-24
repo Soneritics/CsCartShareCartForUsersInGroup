@@ -14,11 +14,11 @@
             <thead>
             <tr>
                 <th class="nowrap">{__("code")}</th>
-                <th class="nowrap">{__("orders")}</th>
-                <th class="nowrap">{__("rewards")}</th>
-                <th class="nowrap" colspan="2">{__("progress")}</th>
-                <th class="nowrap">{__("total_order_amount")}</th>
-                <th class="nowrap">{__("average_order_amount")}</th>
+                <th class="nowrap right">{__("orders")}</th>
+                <th class="nowrap right">{__("addons.soneritics_sharecart.rewards")}</th>
+                <th class="nowrap" colspan="2">{__("addons.soneritics_sharecart.progress")}</th>
+                <th class="nowrap right">{__("addons.soneritics_sharecart.total_order_amount")}</th>
+                <th class="nowrap right">{__("addons.soneritics_sharecart.average_order_amount")}</th>
             </tr>
             </thead>
             {foreach from=$overview item=overviewLine}
