@@ -54,6 +54,11 @@ class SoneriticsShareCartOverviewLine
     private $rewards;
 
     /**
+     * @var int
+     */
+    private $rewardCount;
+
+    /**
      * @var double
      */
     private $currentProgressPercentage;
@@ -72,6 +77,7 @@ class SoneriticsShareCartOverviewLine
      * @param int $rewards
      * @param int $currentProgressPoints
      * @param float $currentProgressPercentage
+     * @param int $rewardCount
      */
     public function __construct(
         string $praktijkcode,
@@ -80,7 +86,8 @@ class SoneriticsShareCartOverviewLine
         float $averageOrderAmount,
         int $rewards,
         int $currentProgressPoints,
-        float $currentProgressPercentage
+        float $currentProgressPercentage,
+        int $rewardCount
     ) {
         $this->praktijkcode = $praktijkcode;
         $this->orderCount = $orderCount;
@@ -89,6 +96,7 @@ class SoneriticsShareCartOverviewLine
         $this->rewards = $rewards;
         $this->currentProgressPoints = $currentProgressPoints;
         $this->currentProgressPercentage = $currentProgressPercentage;
+        $this->rewardCount = $rewardCount;
     }
 
     /**
@@ -145,5 +153,13 @@ class SoneriticsShareCartOverviewLine
     public function getCurrentProgressPoints(): int
     {
         return $this->currentProgressPoints;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRewardCount(): int
+    {
+        return $this->rewardCount;
     }
 }

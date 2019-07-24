@@ -54,15 +54,17 @@ class SoneriticsShareCartOverviewGenerator
             "SELECT
                 LOWER(pfd.value) as `code`,
                 SUM(o.total) as `total`,
-                COUNT(o.order_id) as `ordercount`
+                COUNT(o.order_id) as `ordercount`,
+                COUNT(r.id) as `rewardcount`
             FROM `?:profile_fields_data` pfd
             INNER JOIN `?:orders` o ON o.order_id = pfd.object_id
+            LEFT JOIN `?:soneritics_sharecart_rewards` r ON LOWER(r.code) = LOWER(pfd.value)
             WHERE 1=1
-                and field_id in(?a) 
-                and object_type='O'
+                AND field_id in(?a) 
+                AND object_type = 'O'
                 AND o.total >= ?d
                 AND o.status = 'C'
-            GROUP BY LOWER(`code`)",
+            GROUP BY LOWER(pfd.value), r.code",
             $ids,
             $minimumAmount
         );
@@ -76,7 +78,8 @@ class SoneriticsShareCartOverviewGenerator
                     round($row['total'] / $row['ordercount'], 2),
                     (int)floor($row['ordercount'] / $pointsNeeded),
                     $row['ordercount'] % $pointsNeeded,
-                    round(($row['ordercount'] % $pointsNeeded) / $pointsNeeded * 100, 2)
+                    round(($row['ordercount'] % $pointsNeeded) / $pointsNeeded * 100, 2),
+                    (int)$row['rewardcount']
                 );
             }
         }

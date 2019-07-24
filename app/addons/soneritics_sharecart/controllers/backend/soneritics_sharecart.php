@@ -30,6 +30,13 @@ if (!defined('BOOTSTRAP')) { die('Access denied'); }
 // Init variables for use in every controller function
 $repository = new SoneriticsShareCartRepository;
 
+// Send a reward
+if ($mode === 'sendreward') {
+    $code = strtolower($_REQUEST['code']);
+    db_query("INSERT INTO `?:soneritics_sharecart_rewards`(`code`) VALUES(?s)", $code);
+    return array(CONTROLLER_STATUS_OK, 'soneritics_sharecart.overview');
+}
+
 // Overview
 if ($mode === 'overview') {
     $overview = (new SoneriticsShareCartOverviewGenerator($repository))->generateCompleteOverview();

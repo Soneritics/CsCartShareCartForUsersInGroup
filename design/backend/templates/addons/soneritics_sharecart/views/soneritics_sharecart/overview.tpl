@@ -19,6 +19,7 @@
                 <th class="nowrap" colspan="2">{__("addons.soneritics_sharecart.progress")}</th>
                 <th class="nowrap right">{__("addons.soneritics_sharecart.total_order_amount")}</th>
                 <th class="nowrap right">{__("addons.soneritics_sharecart.average_order_amount")}</th>
+                <th></th>
             </tr>
             </thead>
             {foreach from=$overview item=overviewLine}
@@ -30,6 +31,13 @@
                     <td class="nowrap">{$overviewLine->getCurrentProgressPoints()} / {$repository->getSettings()->getPointsNeeded()}</td>
                     <td class="nowrap right">{include file="common/price.tpl" value=$overviewLine->getTotalOrderAmount()}</td>
                     <td class="nowrap right">{include file="common/price.tpl" value=$overviewLine->getAverageOrderAmount()}</td>
+                    <td>
+                        {if $overviewLine->getRewards() > $overviewLine->getRewardCount()}
+                            {sprintf(__('addons.soneritics_sharecart.overview.sendreward'), $overviewLine->getRewards() - $overviewLine->getRewardCount())}
+                            <br>
+                            <a href="{"soneritics_sharecart.sendreward?code=`$overviewLine->getPraktijkcode()`"|fn_url}" class="btn btn-info o-status-p btn-small">{__("send")}</a>
+                        {/if}
+                    </td>
                 </tr>
             {/foreach}
         </table>

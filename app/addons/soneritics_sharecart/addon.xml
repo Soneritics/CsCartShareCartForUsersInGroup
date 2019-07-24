@@ -36,4 +36,14 @@
             </section>
         </sections>
     </settings>
+    <queries>
+        <item>
+            CREATE TABLE IF NOT EXISTS `?:soneritics_sharecart_rewards`(
+                `id` INT NOT NULL AUTO_INCREMENT,
+                `code` VARCHAR(50) NOT NULL,
+                `sent` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+                PRIMARY KEY (`id`)
+            );
+        </item>
+    </queries>
 </addon>
