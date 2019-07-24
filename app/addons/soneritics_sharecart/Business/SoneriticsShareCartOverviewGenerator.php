@@ -62,6 +62,7 @@ class SoneriticsShareCartOverviewGenerator
             WHERE 1=1
                 AND field_id in(?a) 
                 AND object_type = 'O'
+                AND LENGTH(TRIM(pfd.value)) > 0
                 AND o.total >= ?d
                 AND o.status = 'C'
             GROUP BY LOWER(pfd.value), r.code",
