@@ -25,7 +25,7 @@ msgid "This overview states all of the shared codes. It then gives an overview o
 msgstr "Dit overzicht bevat alle praktijkcodes en bijhorende orders."
 
 msgctxt "Languages::addons.soneritics_sharecart.overview.message"
-msgid "The overview below shows the codes that have been used, including the number of orders. Orders must have a minimum smount of %s. Every order will get one reward point. The number of required points is set at %s."
+msgid "The overview below shows the codes that have been used, including the number of orders. Orders must have a minimum amount of %s. Every order will get one reward point. The number of required points is set at %s."
 msgstr "Onderstaand overzicht bevat alle praktijkcodes, inclusief het aantal bestellingen. Bestellingen moeten een minimum bestelbedrag hebben van %s. Per bestelling wordt één punt gegeven. De hoogte is ingesteld op %s punten."
 
 msgctxt "Languages::addons.soneritics_sharecart.overview.sendreward"

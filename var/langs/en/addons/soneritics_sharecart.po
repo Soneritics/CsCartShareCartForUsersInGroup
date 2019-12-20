@@ -25,8 +25,8 @@ msgid "This overview states all of the shared codes. It then gives an overview o
 msgstr "This overview states all of the shared codes. It then gives an overview of all of the orders for this code."
 
 msgctxt "Languages::addons.soneritics_sharecart.overview.message"
-msgid "The overview below shows the codes that have been used, including the number of orders. Orders must have a minimum smount of %s. Every order will get one reward point. The number of required points is set at %s."
-msgstr "The overview below shows the codes that have been used, including the number of orders. Orders must have a minimum smount of %s. Every order will get one reward point. The number of required points is set at %s."
+msgid "The overview below shows the codes that have been used, including the number of orders. Orders must have a minimum amount of %s. Every order will get one reward point. The number of required points is set at %s."
+msgstr "The overview below shows the codes that have been used, including the number of orders. Orders must have a minimum amount of %s. Every order will get one reward point. The number of required points is set at %s."
 
 msgctxt "Languages::addons.soneritics_sharecart.overview.sendreward"
 msgid "%s rewards to send"
