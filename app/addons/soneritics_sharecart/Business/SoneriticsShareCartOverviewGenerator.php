@@ -52,13 +52,13 @@ class SoneriticsShareCartOverviewGenerator
 
         $rows = db_get_array(
             "SELECT
-                LOWER(pfd.value) as `code`,
+                REPLACE(LOWER(pfd.value), ' ', '') as `code`,
                 SUM(o.total) as `total`,
                 COUNT(o.order_id) as `ordercount`,
                 COUNT(r.id) as `rewardcount`
             FROM `?:profile_fields_data` pfd
             INNER JOIN `?:orders` o ON o.order_id = pfd.object_id
-            LEFT JOIN `?:soneritics_sharecart_rewards` r ON LOWER(r.code) = LOWER(pfd.value)
+            LEFT JOIN `?:soneritics_sharecart_rewards` r ON REPLACE(LOWER(r.code), ' ', '') = REPLACE(LOWER(pfd.value), ' ', '')
             WHERE 1=1
                 AND field_id in(?a) 
                 AND object_type = 'O'
@@ -102,10 +102,10 @@ class SoneriticsShareCartOverviewGenerator
             WHERE 1=1
                 and field_id in(?a) 
                 and object_type='O'
-                and LOWER(`value`) = ?s
+                and REPLACE(LOWER(`value`), ' ', '') = ?s
             GROUP BY `object_id`",
             $ids,
-            strtolower($code)
+            str_replace(' ', '', strtolower($code))
         );
     }
 }
