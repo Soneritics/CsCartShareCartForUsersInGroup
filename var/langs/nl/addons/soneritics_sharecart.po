@@ -24,9 +24,25 @@ msgctxt "Languages::addons.soneritics_sharecart.manage.overview_sidebar"
 msgid "This overview states all of the shared codes. It then gives an overview of all of the orders for this code."
 msgstr "Dit overzicht bevat alle praktijkcodes en bijhorende orders."
 
+msgctxt "Languages::addons.soneritics_sharecart.manage.add_sidebar"
+msgid "Provide a new code here. Don't use spaces and only user lowercase characters."
+msgstr "Hier kan een nieuwe code ingevoerd worden. Gebruik geen spaties en geen hoofdletters."
+
+msgctxt "Languages::addons.soneritics_sharecart.add.message"
+msgid "Insert the new code here. No spaces and only lowercase characters."
+msgstr "Geef hier de nieuwe praktijkcode op. Geen hoofdletters en spaties."
+
 msgctxt "Languages::addons.soneritics_sharecart.overview.message"
 msgid "The overview below shows the codes that have been used, including the number of orders. Orders must have a minimum amount of %s. Every order will get one reward point. The number of required points is set at %s."
-msgstr "Onderstaand overzicht bevat alle praktijkcodes, inclusief het aantal bestellingen. Bestellingen moeten een minimum bestelbedrag hebben van %s. Per bestelling wordt één punt gegeven. De hoogte is ingesteld op %s punten."
+msgstr "Onderstaand overzicht bevat alle geldige praktijkcodes en het aantal bestellingen. Bestellingen moeten een minimum bestelbedrag hebben van %s. Per bestelling wordt één punt gegeven. De hoogte is ingesteld op %s punten."
+
+msgctxt "Languages::addons.soneritics_sharecart.overview.invalidmessage"
+msgid "The overview below shows the codes that have been used, but are not yet activated."
+msgstr "Het onderstaande overzicht toont ingevoerde codes die (nog) niet zijn geactiveerd."
+
+msgctxt "Languages::addons.soneritics_sharecart.overview.unusedmessage"
+msgid "The overview below shows the codes that are activated, but have never been used."
+msgstr "Onderstaand overzicht toont de geactiveerde praktijkcodes, die nog niet gebruikt zijn in bestellingen."
 
 msgctxt "Languages::addons.soneritics_sharecart.overview.sendreward"
 msgid "%s rewards to send"

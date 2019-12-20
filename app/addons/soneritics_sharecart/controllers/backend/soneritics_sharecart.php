@@ -30,6 +30,22 @@ if (!defined('BOOTSTRAP')) { die('Access denied'); }
 // Init variables for use in every controller function
 $repository = new SoneriticsShareCartRepository;
 
+// Delete an active code
+if ($mode == "delete") {
+    $code = strtolower($_REQUEST['code']);
+    db_query("DELETE FROM `?:soneritics_sharecart_samples` WHERE code = ?s", $code);
+    return array(CONTROLLER_STATUS_OK, 'soneritics_sharecart.overview');
+}
+
+// Activate a code
+if ($mode == "addcode") {
+    if (!empty($_REQUEST['code'])) {
+        $code = str_replace(' ', '', strtolower($_REQUEST['code']));
+        db_query("INSERT INTO `?:soneritics_sharecart_samples`(code) VALUES(?s)", $code);
+        return array(CONTROLLER_STATUS_OK, 'soneritics_sharecart.overview');
+    }
+}
+
 // Send a reward
 if ($mode === 'sendreward') {
     $code = strtolower($_REQUEST['code']);
@@ -40,7 +56,9 @@ if ($mode === 'sendreward') {
 // Overview
 if ($mode === 'overview') {
     $overview = (new SoneriticsShareCartOverviewGenerator($repository))->generateCompleteOverview();
-    Tygh::$app['view']->assign('overview', $overview);
+    Tygh::$app['view']->assign('overview', $overview['active']);
+    Tygh::$app['view']->assign('inactiveOverview', $overview['inactive']);
+    Tygh::$app['view']->assign('unusedCodes', $overview['unused']);
 }
 
 // Orders for a certain code

@@ -2,7 +2,7 @@
 <addon scheme="3.0">
     <id>soneritics_sharecart</id>
     <name>Soneritics Share Cart</name>
-    <version>1.0</version>
+    <version>1.1</version>
     <default_language>en</default_language>
     <priority>1000</priority>
     <status>active</status>
@@ -26,6 +26,11 @@
                         <type>input</type>
                         <default_value></default_value>
                     </item>
+                    <item id="sample_product_id">
+                        <name>Sample product ID</name>
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
                     <item id="active">
                         <name>Active</name>
                         <type>checkbox</type>
@@ -43,6 +48,12 @@
                 `code` VARCHAR(50) NOT NULL,
                 `sent` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
                 PRIMARY KEY (`id`)
+            );
+        </item>
+        <item>
+            CREATE TABLE IF NOT EXISTS `?:soneritics_sharecart_samples`(
+                `code` VARCHAR(50) NOT NULL
+                PRIMARY KEY (`code`)
             );
         </item>
     </queries>

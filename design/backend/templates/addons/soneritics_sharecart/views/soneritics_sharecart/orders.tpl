@@ -1,6 +1,7 @@
 {hook name="soneritics_sharecart:notice"}
 {notes title=__("soneritics_sharecart_menu")}
     <p>{__('addons.soneritics_sharecart.manage.orders_sidebar')}</p>
+    <p><a href="{"soneritics_sharecart.delete?code=$praktijkcode"|fn_url}" class="btn btn-danger o-status-f">{__("delete")} code</a></p>
 {/notes}
 {/hook}
 

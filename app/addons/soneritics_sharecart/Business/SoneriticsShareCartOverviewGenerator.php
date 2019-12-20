@@ -44,7 +44,18 @@ class SoneriticsShareCartOverviewGenerator
      */
     public function generateCompleteOverview(): array
     {
-        $result = [];
+        $result = [
+            'active' => [],
+            'inactive' => [],
+            'unused' => []
+        ];
+
+        $activeCodes = db_get_fields("SELECT `code` FROM `?:soneritics_sharecart_samples` ORDER BY `code` ASC");
+        $result['unused'] = [];
+
+        foreach ($activeCodes as $activeCode) {
+            $result['unused'][$activeCode] = $activeCode;
+        }
 
         $ids = $this->repository->getProfileField()->getIds();
         $minimumAmount = $this->repository->getSettings()->getMinimumAmount();
@@ -72,7 +83,9 @@ class SoneriticsShareCartOverviewGenerator
 
         if (!empty($rows)) {
             foreach ($rows as $row) {
-                $result[$row['code']] = new SoneriticsShareCartOverviewLine(
+                $type = in_array($row['code'], $activeCodes) ? 'active' : 'inactive';
+
+                $result[$type][$row['code']] = new SoneriticsShareCartOverviewLine(
                     $row['code'],
                     (int)$row['ordercount'],
                     (double)$row['total'],
@@ -82,6 +95,10 @@ class SoneriticsShareCartOverviewGenerator
                     round(($row['ordercount'] % $pointsNeeded) / $pointsNeeded * 100, 2),
                     (int)$row['rewardcount']
                 );
+
+                if (isset($result['unused'][$row['code']])) {
+                    unset($result['unused'][$row['code']]);
+                }
             }
         }
 

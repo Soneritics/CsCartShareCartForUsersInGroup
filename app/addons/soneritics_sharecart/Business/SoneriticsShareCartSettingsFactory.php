@@ -51,11 +51,13 @@ class SoneriticsShareCartSettingsFactory
         $minimumAmount = (double)\Tygh\Registry::get('addons.soneritics_sharecart.minimum_amt');
         $pointsNeeded = (int)\Tygh\Registry::get('addons.soneritics_sharecart.points_needed');
         $praktijkcode = \Tygh\Registry::get('addons.soneritics_sharecart.praktijkcode');
+        $sampleProductId = \Tygh\Registry::get('addons.soneritics_sharecart.sample_product_id');
 
         static::$settings = (new SoneriticsShareCartSettings)
             ->setActive($active)
             ->setMinimumAmount($minimumAmount)
             ->setPraktijkcode($praktijkcode)
-            ->setPointsNeeded($pointsNeeded);
+            ->setPointsNeeded($pointsNeeded)
+            ->setSampleProductId($sampleProductId);
     }
 }

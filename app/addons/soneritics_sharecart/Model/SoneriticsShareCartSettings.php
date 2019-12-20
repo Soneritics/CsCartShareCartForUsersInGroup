@@ -40,9 +40,32 @@ class SoneriticsShareCartSettings
     private $pointsNeeded;
 
     /**
+     * @var int
+     */
+    private $sampleProductId;
+
+    /**
      * @var bool
      */
     private $active = false;
+
+    /**
+     * @return int
+     */
+    public function getSampleProductId(): int
+    {
+        return $this->sampleProductId;
+    }
+
+    /**
+     * @param int $sampleProductId
+     * @return SoneriticsShareCartSettings
+     */
+    public function setSampleProductId(int $sampleProductId): SoneriticsShareCartSettings
+    {
+        $this->sampleProductId = $sampleProductId;
+        return $this;
+    }
 
     /**
      * @return string

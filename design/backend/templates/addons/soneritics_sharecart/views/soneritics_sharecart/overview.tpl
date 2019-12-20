@@ -1,6 +1,7 @@
 {hook name="soneritics_sharecart:notice"}
     {notes title=__("soneritics_sharecart_menu")}
         <p>{__('addons.soneritics_sharecart.manage.overview_sidebar')}</p>
+        <p><a href="{"soneritics_sharecart.addcode"|fn_url}" class="btn btn-info o-status-p">Code {__("add")}</a></p>
     {/notes}
 {/hook}
 
@@ -43,6 +44,45 @@
         </table>
     {else}
         <p class="no-items">{__("no_data")}</p>
+    {/if}
+
+    <p>{__('addons.soneritics_sharecart.overview.invalidmessage')}</p>
+    {if $inactiveOverview}
+        <table class="table sortable table-middle">
+            <thead>
+            <tr>
+                <th class="nowrap">{__("code")}</th>
+                <th class="nowrap right">{__("orders")}</th>
+                <th class="nowrap right">{__("addons.soneritics_sharecart.total_order_amount")}</th>
+                <th class="nowrap right">{__("addons.soneritics_sharecart.average_order_amount")}</th>
+                <th></th>
+            </tr>
+            </thead>
+            {foreach from=$inactiveOverview item=overviewLine}
+                <tr>
+                    <td><a href="{"soneritics_sharecart.orders?code=`$overviewLine->getPraktijkcode()`"|fn_url}">{$overviewLine->getPraktijkcode()}</a></td>
+                    <td class="nowrap right">{$overviewLine->getOrderCount()}</td>
+                    <td class="nowrap right">{include file="common/price.tpl" value=$overviewLine->getTotalOrderAmount()}</td>
+                    <td class="nowrap right">{include file="common/price.tpl" value=$overviewLine->getAverageOrderAmount()}</td>
+                    <td class="nowrap right"><a href="{"soneritics_sharecart.addcode?code=`$overviewLine->getPraktijkcode()`"|fn_url}" class="btn btn-info o-status-p btn-small">{__("add")}</a></td>
+                </tr>
+            {/foreach}
+        </table>
+    {else}
+        <p class="no-items">{__("no_data")}</p>
+    {/if}
+
+    {if !empty($unusedCodes)}
+        <p>{__('addons.soneritics_sharecart.overview.unusedmessage')}</p>
+
+        <ul>
+            {foreach from=$unusedCodes item=unusedCode}
+                <li>
+                    <a href="{"soneritics_sharecart.delete?code=$unusedCode"|fn_url}" class="btn btn-danger o-status-f btn-small">X</a>
+                    {$unusedCode}
+                </li>
+            {/foreach}
+        </ul>
     {/if}
 
     {capture name="buttons"}{/capture}
