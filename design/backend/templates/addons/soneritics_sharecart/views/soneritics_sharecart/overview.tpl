@@ -47,8 +47,9 @@
     {/if}
 
     <p>{__('addons.soneritics_sharecart.overview.invalidmessage')}</p>
+    <p><a href="javascript:;" onclick="$('#invalidcodetable').show();$(this).parent().hide();">{__('show')} {__('list')} &darr;</a></p>
     {if $inactiveOverview}
-        <table class="table sortable table-middle">
+        <table class="table sortable table-middle" id="invalidcodetable" style="display:none;">
             <thead>
             <tr>
                 <th class="nowrap">{__("code")}</th>
@@ -74,7 +75,6 @@
 
     {if !empty($unusedCodes)}
         <p>{__('addons.soneritics_sharecart.overview.unusedmessage')}</p>
-
         <ul>
             {foreach from=$unusedCodes item=unusedCode}
                 <li>
